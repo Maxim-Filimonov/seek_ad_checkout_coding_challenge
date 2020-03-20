@@ -7,7 +7,8 @@
     "watch": "concurrently -k -p \"npm run watch-ts\" \"npm run watch-node\"",
     "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "version": "1.0.0",
   "main": "index.js",

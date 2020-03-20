@@ -36,3 +36,9 @@ Will recompile files continiously to ease development
 ```
 yarn run watch
 ```
+
+For writing tests
+
+```
+yarn run watch-test
+```
