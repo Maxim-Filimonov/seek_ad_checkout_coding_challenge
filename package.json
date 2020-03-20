@@ -1,0 +1,19 @@
+{
+  "name": "seek_ad_challenge",
+  "scripts": {
+    "prestart": "yarn run build",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "watch": "concurrently -k -p \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch-node": "nodemon dist/index.js",
+    "watch-ts": "tsc -w"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Maxim Filimonov <tpaktopsp@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
