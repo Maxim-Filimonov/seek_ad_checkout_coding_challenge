@@ -2,6 +2,7 @@ import Checkout from "./checkout";
 describe("Checkout", () => {
   it("totals to zero by default", () => {
     const co = new Checkout({ products: [{ name: "test", price: 1000 }] });
+
     expect(co.total()).toEqual(0);
   });
   it("calculates total based on ads prices", () => {
@@ -13,7 +14,7 @@ describe("Checkout", () => {
         },
         {
           name: "standout",
-          price: 51.01
+          price: 50.01
         }
       ]
     };
