@@ -6,7 +6,8 @@
     "start": "node dist/index.js",
     "watch": "concurrently -k -p \"npm run watch-ts\" \"npm run watch-node\"",
     "watch-node": "nodemon dist/index.js",
-    "watch-ts": "tsc -w"
+    "watch-ts": "tsc -w",
+    "test": "jest"
   },
   "version": "1.0.0",
   "main": "index.js",
@@ -14,6 +15,10 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "@types/jest": "^25.1.4",
+    "concurrently": "^5.1.0",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3"
   }
 }
