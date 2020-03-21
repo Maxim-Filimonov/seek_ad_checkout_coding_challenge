@@ -3,16 +3,19 @@ import { ProductDiscount, DiscountType, Product } from "./ad_config";
 function applyNthDeal(discount: ProductDiscount, products: Product[]) {
   const discountEvery = parseInt(discount.discountValue);
 
-  const discountedProducts = products.map((x, index) => {
-    if (isnTh(index, discountEvery)) {
-      return { ...x, price: 0 };
+  const discountedProducts = products.map((product, index) => {
+    if (isDiscountable(discount, product) && isnTh(index, discountEvery)) {
+      return { ...product, price: 0 };
     } else {
-      return x;
+      return product;
     }
   });
   return discountedProducts;
 }
 
+function isDiscountable(discount: ProductDiscount, product: Product) {
+  return product.name === discount.productName;
+}
 export function applyDiscount(discount: ProductDiscount, products: Product[]) {
   switch (discount.discountType) {
     case DiscountType.nthDeal:
