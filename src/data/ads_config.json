@@ -1,17 +1,17 @@
 {
   "products": [
     {
-      "name": "Classic Ad",
+      "name": "classic",
       "description": "Offers the most basic level of advertisement",
       "price": 269.99
     },
     {
-      "name": "Stand out Ad",
+      "name": "standout",
       "description": "Allows advertisers to use a company logo and use a longer presentation text",
       "price": 322.99
     },
     {
-      "name": "Premium Ad",
+      "name": "premium",
       "description": "Same benefits as Standout Ad, but also puts the advertisement at the top of the results, allowing higher visibility",
       "price": 394.99
     }
@@ -21,9 +21,34 @@
       "customer": "SecondBite",
       "productDiscounts": [
         {
-          "productName": "Classic Ad",
+          "productName": "classic",
           "discountType": "nthDeal",
           "discountValue": "3"
+        }
+      ]
+    },
+    {
+      "customer": "Axil Coffee Roasters",
+      "productDiscounts": [
+        {
+          "productName": "standout",
+          "discountType": "priceDrop",
+          "discountValue": "299.99"
+        }
+      ]
+    },
+    {
+      "customer": "MYER",
+      "productDiscounts": [
+        {
+          "productName": "standout",
+          "discountType": "nthDeal",
+          "discountValue": "5"
+        },
+        {
+          "productName": "premium",
+          "discountType": "priceDrop",
+          "discountValue": "389.99"
         }
       ]
     }

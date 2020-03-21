@@ -1,0 +1,30 @@
+[
+  {
+    "customer": "default",
+    "items": ["classic", "standout", "premium"],
+    "expectedTotal": 987.97
+  },
+  {
+    "customer": "SecondBite",
+    "items": ["classic", "classic", "classic", "premium"],
+    "expectedTotal": 934.97
+  },
+  {
+    "customer": "Axil Coffee Roasters",
+    "items": ["standout", "standout", "standout", "premium"],
+    "expectedTotal": 1294.96
+  },
+  {
+    "customer": "MYER",
+    "items": [
+      "classic",
+      "standout",
+      "standout",
+      "standout",
+      "standout",
+      "premium",
+      "standout"
+    ],
+    "expectedTotal": "1951.94"
+  }
+]
