@@ -61,6 +61,61 @@ describe("Checkout", () => {
 
         expect(total).toEqual(100);
       });
+      it("can discount specific ad element", () => {
+        const checkout = new Checkout({
+          products: [{ name: "test", price: 100 }],
+          rules: [
+            {
+              customer: "another customer",
+              productDiscounts: [
+                {
+                  productName: "test",
+                  discountType: DiscountType.priceDrop,
+                  discountValue: "11.11"
+                }
+              ]
+            }
+          ]
+        });
+        const total = checkout
+          .append("test")
+          .append("test")
+          .total("another customer");
+
+        expect(total).toEqual(22.22);
+      });
+      it("can handle multiple discount for different customers", () => {
+        const checkout = new Checkout({
+          products: [{ name: "test", price: 100 }],
+          rules: [
+            {
+              customer: "James Bond",
+              productDiscounts: [
+                {
+                  productName: "test",
+                  discountType: DiscountType.priceDrop,
+                  discountValue: "11.11"
+                }
+              ]
+            },
+            {
+              customer: "Charlie Queen",
+              productDiscounts: [
+                {
+                  productName: "test",
+                  discountType: DiscountType.nthDeal,
+                  discountValue: "2"
+                }
+              ]
+            }
+          ]
+        });
+        const readyToCalc = checkout.append("test").append("test");
+
+        expect(readyToCalc.total("James Bond")).toEqual(22.22);
+        expect(readyToCalc.total("Charlie Queen")).toEqual(100);
+        expect(readyToCalc.total("Dudli doo")).toEqual(200);
+      });
     });
   });
 });
