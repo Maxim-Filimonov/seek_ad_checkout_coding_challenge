@@ -18,15 +18,17 @@ class Checkout {
     }
     return this;
   };
-
-  total = (customerName: string = "default"): number => {
+  applyProductDiscounts(customerName: string) {
     const matchedRule =
       this.adConfig.rules &&
       this.adConfig.rules.find(x => x.customer === customerName);
-    const discountedProducts = matchedRule?.productDiscounts.reduce(
+    return matchedRule?.productDiscounts.reduce(
       (acc, discount) => applyDiscount(discount, acc),
       this.products
     );
+  }
+  total = (customerName: string = "default"): number => {
+    const discountedProducts = this.applyProductDiscounts(customerName);
     return calculateTotal(discountedProducts ?? this.products);
   };
 }
