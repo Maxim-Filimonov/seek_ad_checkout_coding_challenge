@@ -1,4 +1,5 @@
 import Checkout from "./checkout";
+import { DiscountType } from "./ad_config";
 describe("Checkout", () => {
   describe("adding products", () => {
     it("ignores invalid name", () => {
@@ -35,6 +36,31 @@ describe("Checkout", () => {
 
       const total = checkout.total();
       expect(total).toEqual(100);
+    });
+    describe("ad discounts", () => {
+      it("can discount every 2 element", () => {
+        const checkout = new Checkout({
+          products: [{ name: "test", price: 100 }],
+          rules: [
+            {
+              customer: "test customer",
+              productDiscounts: [
+                {
+                  productName: "test",
+                  discountType: DiscountType.nthDeal,
+                  discountValue: "2"
+                }
+              ]
+            }
+          ]
+        });
+        const total = checkout
+          .append("test")
+          .append("test")
+          .total("test customer");
+
+        expect(total).toEqual(100);
+      });
     });
   });
 });
